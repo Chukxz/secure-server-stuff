@@ -1,6 +1,4 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <stdio.h>
 #include <unistd.h>
 #include <sys/types.h>
 #include <sys/stat.h>
@@ -26,32 +24,4 @@ int isValidPassword(char *input)
 	close(fd);
 
 	return (strcmp(actual_password, input) == 0);
-}
-
-void debug() 
-{
-    printf("!! ENTERING DEBUG MODE !!\n");
-	system("build.sh");
-}
-
-int checkPassword()
-{
-    char password[64];
-
-    printf("password: ");
-    gets(password);
-
-    return isValidPassword(password);
-}
-
-int main(int argc, char **argv)
-{
-    printf("WELCOME TO THE SECURE SERVER\n");
-
-    if (checkPassword())
-    {
-        debug();
-    } else {
-        printf("Wrong password, sorry;\n");
-    }
 }
